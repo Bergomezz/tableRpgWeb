@@ -1,0 +1,75 @@
+# Arquivos do projeto
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Arquivos de compilação
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Arquivos gerados pelo Visual Studio
+*.dbmdl
+*.jfm
+*.pfx
+*.publishsettings
+
+# Arquivos do ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# Arquivos do TeamCity
+_TeamCity*
+
+# Arquivos de backup
+Backup*/
+/App_Data/*.bak
+*.swp
+*.*~
+*.bak
+*.tmp
+*.swp
+*~.nib
+*.swm
+
+# Arquivos de imagem
+Thumbs.db
+ehthumbs.db
+
+# Arquivos do banco de dados
+*.mdf
+*.ldf
+
+# Arquivos de teste
+TestResult.xml
+*.coverage
+*.vsmdi
+*.testsettings
+
+# Arquivos do Azure
+ecf
+rcf
+
+# Arquivos do NuGet
+packages/
+
+# Arquivos do Microsoft Azure Build
+csx
+*.build.csdef
+
+# Arquivos do Node.js
+node_modules/
+
+# Arquivos do Visual Studio Code
+.vscode/
+
+.fake

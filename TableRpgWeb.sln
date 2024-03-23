@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableRpgWeb", "TableRpgWeb\TableRpgWeb.csproj", "{3343C176-42F6-45D7-BA16-857F56D8ED78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabelRpgWeb", "TabelRpgWeb\TabelRpgWeb.csproj", "{EF392625-195C-4658-99E2-CC82C4AAF421}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3343C176-42F6-45D7-BA16-857F56D8ED78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3343C176-42F6-45D7-BA16-857F56D8ED78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3343C176-42F6-45D7-BA16-857F56D8ED78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3343C176-42F6-45D7-BA16-857F56D8ED78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF392625-195C-4658-99E2-CC82C4AAF421}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF392625-195C-4658-99E2-CC82C4AAF421}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF392625-195C-4658-99E2-CC82C4AAF421}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF392625-195C-4658-99E2-CC82C4AAF421}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
