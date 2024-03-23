@@ -1,5 +1,5 @@
-﻿using TabelRpgWeb;
-using TabelRpgWeb.Controllers;
+﻿using System;
+using TabelRpgWeb;
 
 namespace TabelRpgWeb {
 
@@ -7,7 +7,7 @@ namespace TabelRpgWeb {
     public  class Character : Races
     {
 
-        public int _Id { get; };
+        public int _Id { get; set; }
         public Races Race { get; set; }
         public string Name { get; set; }
         public int Strength { get; set; }
@@ -28,9 +28,9 @@ namespace TabelRpgWeb {
         Skill skill = new Skill();
         Modifiers chooseModifiers = new Modifiers();
 
-        public  int Hp(int lifeDice, int totalConstituition)
+        public int Hp(int lifeDice, int totalConstituition)
         {
-            return chooseModifiers.Modifiers(totalConstituition) + lifeDice;
+            return chooseModifiers.CalculateModifier(totalConstituition) + lifeDice;
         }
 
         public void SkillDexterity()

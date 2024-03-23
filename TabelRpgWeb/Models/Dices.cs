@@ -1,13 +1,22 @@
-﻿using TabelRpgWeb;
+﻿using System;
+using TabelRpgWeb;
+
 namespace TabelRpgWeb
 {
 
-    public  class Dices 
+    public class Dices
     {
-        private  Random rand = new Random();
+        public int LifeDice { get; set; }
 
-        public  struct LifeDice
+        public LifeDice(LifeDices lifeDice)
         {
+            LifeDice = lifeDice;
+        }
+
+        public struct LifeDices
+        {
+            private static Random rand = new Random();
+
             public int D4 => rand.Next(1, 5);
             public int D6 => rand.Next(1, 7);
             public int D8 => rand.Next(1, 9);
