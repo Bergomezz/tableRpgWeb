@@ -16,7 +16,7 @@ namespace TabelRpgWeb
         public int Speed { get; set; }
         public string Abilities { get; set; }
 
-        public Monsters(string name, string description, Sizes size, string type, int armorClass, LifeSizes lifeSize, XPoints xpPoints, int multiplier)
+        public Monsters(string name, string description, Sizes size, string type, int armorClass, LifeSizes lifeSize, XPoints xpPoints, int multiplier, string ability)
         {
             if (!Types.Contains(type))
             {
@@ -29,6 +29,7 @@ namespace TabelRpgWeb
             ArmorClass = armorClass;
             LifeSize = Hp(multiplier, lifeSize.Tiny, modifier.CalculateModifier());
             Xpoint = xpPoints.Level0;
+            Abilities = ability;
         }
 
         public struct Sizes
