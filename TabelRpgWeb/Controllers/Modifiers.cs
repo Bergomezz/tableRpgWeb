@@ -1,13 +1,17 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using TabelRpgWeb;
 
 namespace TabelRpgWeb
 {
-    public  class Modifiers
+    public class Modifiers
     {
-        public int modifier = -5;
 
-        public  int CalculateModifier(int attribute)
+        public int CalculateModifier(int attribute)
         {
+            int modifier = -5;
+
             int chosenAttribute = modifier;
             if (attribute == 0)
             {

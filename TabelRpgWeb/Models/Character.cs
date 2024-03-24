@@ -1,10 +1,22 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
 using TabelRpgWeb;
 
-namespace TabelRpgWeb {
+namespace TabelRpgWeb 
+{
 
+    public class CharactersContext : DbContext
+    {
+        public DbSet<Characters> Characters { get; set; }
 
-    public  class Character : Races
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\\mssqllocaldb;Database=MonstersDb;Trusted_Connection=True");
+        }
+    }
+
+    public  class Characters
     {
 
         public int _Id { get; set; }
@@ -15,15 +27,28 @@ namespace TabelRpgWeb {
         public int Constituition { get; set; }
         public int Inteligence { get; set; }
         public int Wisdom { get; set; }
-        public int Carisma { get; set; }
+        public int Charisma { get; set; }
         public Antecedents BackHistory { get; set; }
+
+        public Characters(Races race, string name, int strength, int dexterity, int constituition, int inteligence, int wisdom, int charisma, Antecedents backHistory)
+        {
+            Race = race;
+            Name = name;
+            Strength = strength;
+            Dexterity = dexterity;
+            Constituition = constituition;
+            Inteligence = inteligence;
+            Wisdom = wisdom;
+            Charisma = charisma;
+            BackHistory = backHistory;
+        }
 
         public int TotalStrength => Race.BaseStrength + Strength;
         public int TotalDexterity => Race.BaseDexterity + Dexterity;
         public int TotalConstituition => Race.BaseConstituition + Constituition;
         public int TotalIntelligence => Race.BaseInteligence + Inteligence;
         public int TotalWisdom => Race.BaseWisdom + Wisdom;
-        public int TotalCarisma => Race.BaseCarisma + Carisma;
+        public int TotalCharisma => Race.BaseCharisma + Charisma;
 
         Skill skill = new Skill();
         Modifiers chooseModifiers = new Modifiers();

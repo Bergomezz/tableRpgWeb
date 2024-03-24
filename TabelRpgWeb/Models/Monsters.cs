@@ -1,22 +1,40 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
 using TabelRpgWeb;
 
 namespace TabelRpgWeb
 {
-    public class Monsters : Dices
+    public class MonstersContext : DbContext
+    {
+        public DbSet<Monsters> Monsters { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\\mssqllocaldb;Database=MonstersDb;Trusted_Connection=True");
+        }
+    }
+
+    public class Monsters
     {
         Modifiers modifier = new Modifiers();
 
         public int _Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public int Strength { get; set; }
+        public int Dexterity { get; set; }
+        public int Constituition { get; set; }
+        public int Inteligence { get; set; }
+        public int Wisdom { get; set; }
+        public int Charisma { get; set; }
         public double Size { get; set; }
         public int Xpoint { get; set; }
         public int LifeSize { get; set; }
         public int Speed { get; set; }
         public string Abilities { get; set; }
 
-        public Monsters(string name, string description, Sizes size, string type, int armorClass, LifeSizes lifeSize, XPoints xpPoints, int multiplier, string ability)
+        public Monsters(string name, string description, int strg, int dext, int con, int intel, int wis, int chari  ,Sizes size, string type, int armorClass, LifeSizes lifeSize, XPoints xpPoints, int multiplier, string ability)
         {
             if (!Types.Contains(type))
             {
@@ -25,9 +43,15 @@ namespace TabelRpgWeb
 
             Name = name;
             Description = description;
+            Strength = strg;
+            Dexterity = dext;
+            Constituition = con;
+            Inteligence = intel;
+            Wisdom = wis;
+            Charisma = chari;
             Size = size.Personalize;
             ArmorClass = armorClass;
-            LifeSize = Hp(multiplier, lifeSize.Tiny, modifier.CalculateModifier());
+            LifeSize = Hp(multiplier, lifeSize.Tiny, modifier.CalculateModifier(Constituition));
             Xpoint = xpPoints.Level0;
             Abilities = ability;
         }
@@ -55,13 +79,22 @@ namespace TabelRpgWeb
 
         public struct LifeSizes
         {
-            Dices dices = new Dices();
-            public int Tiny => Dices.LifeDice.D4;
-            public int Small => Dices.LifeDice.D6;
-            public int Medium => Dices.LifeDice.D8;
-            public int Big => Dices.LifeDice.D10;
-            public int Huge => Dices.LifeDice.D12;
-            public int Gigantic => Dices.LifeDice.D20;
+            public int Tiny { get; set; } = Dices.LifeDices.D4;
+            public int Small { get; set; } = Dices.LifeDices.D6;
+            public int Medium { get; set; } = Dices.LifeDices.D8;
+            public int Big { get; set; } = Dices.LifeDices.D10;
+            public int Huge { get; set; } = Dices.LifeDices.D12;
+            public int Gigantic { get; set; } = Dices.LifeDices.D20;
+
+            public LifeSizes(int tiny, int small, int medium, int big, int huge, int gigantic)
+            {
+                Tiny = tiny;
+                Small = small;
+                Medium = medium;
+                Big = big;
+                Huge = huge;
+                Gigantic = gigantic;
+            }
         }
 
         public struct XPoints
